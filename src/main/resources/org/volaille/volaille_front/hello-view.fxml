@@ -1,16 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.volaille.volaille_front.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <Tab text="Visualisation">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ListView layoutX="48.0" layoutY="51.0" prefHeight="200.0" prefWidth="329.0" />
+                  <Label layoutX="48.0" layoutY="23.0" text="Liste des volailles" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Configuration">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="21.0" layoutY="127.0" mnemonicParsing="false" text="Appliquer" />
+                  <Label layoutX="19.0" layoutY="49.0" text="Prix au kilo :">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Label layoutX="21.0" layoutY="14.0" prefHeight="31.0" prefWidth="91.0" text="Poulet" underline="true">
+                     <font>
+                        <Font name="Corbel Bold" size="25.0" />
+                     </font></Label>
+                  <TextField layoutX="19.0" layoutY="95.0" prefHeight="25.0" prefWidth="149.0" promptText="Prix au kilo (€)" />
+                  <Label layoutX="21.0" layoutY="73.0" text="Label" />
+                  <Label layoutX="21.0" layoutY="178.0" text="Poids d'abattage :">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="21.0" layoutY="203.0" text="Label" />
+                  <TextField layoutX="19.0" layoutY="225.0" promptText="Poids abattage (kilo)" />
+                  <Button layoutX="21.0" layoutY="258.0" mnemonicParsing="false" text="Appliquer" />
+                  <Label layoutX="421.0" layoutY="14.0" text="Canards" underline="true">
+                     <font>
+                        <Font name="Corbel Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="423.0" layoutY="49.0" text="Prix au kilo :">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="423.0" layoutY="73.0" text="Label" />
+                  <TextField layoutX="421.0" layoutY="95.0" promptText="Prix au kilo (€)" />
+                  <TextField layoutX="421.0" layoutY="225.0" promptText="Poids abattage (kilo)" />
+                  <Label layoutX="423.0" layoutY="178.0" text="Poids d'abattage :">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="423.0" layoutY="203.0" text="Label" />
+                  <Button layoutX="425.0" layoutY="127.0" mnemonicParsing="false" text="Appliquer" />
+                  <Button layoutX="425.0" layoutY="258.0" mnemonicParsing="false" text="Appliquer" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
