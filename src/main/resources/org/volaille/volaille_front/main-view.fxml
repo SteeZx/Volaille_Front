@@ -10,8 +10,37 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <ListView layoutX="48.0" layoutY="51.0" prefHeight="200.0" prefWidth="329.0" />
-                  <Label layoutX="48.0" layoutY="23.0" text="Liste des volailles" />
+                  <ListView layoutX="48.0" layoutY="51.0" prefHeight="497.0" prefWidth="329.0" />
+                  <Label layoutX="48.0" layoutY="14.0" text="Liste des volailles" underline="true">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="469.0" layoutY="14.0" text="Informations Détaillées" underline="true">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="469.0" layoutY="67.0" text="Volailles à abbatre">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="469.0" layoutY="109.0" text="Canards :" />
+                  <Label layoutX="528.0" layoutY="109.0" text="Label" />
+                  <Label layoutX="469.0" layoutY="136.0" text="Poulet :" />
+                  <Label layoutX="528.0" layoutY="136.0" text="Label" />
+                  <Label layoutX="573.0" layoutY="109.0" text="pour" />
+                  <Label layoutX="572.0" layoutY="136.0" text="pour" />
+                  <Label layoutX="615.0" layoutY="109.0" text="Label" />
+                  <Label layoutX="615.0" layoutY="136.0" text="Label" />
+                  <Label layoutX="469.0" layoutY="175.0" text="Volailles en dessous du poids">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="469.0" layoutY="216.0" text="Canards" />
+                  <Label layoutX="469.0" layoutY="245.0" text="Poulets" />
+                  <Label layoutX="528.0" layoutY="216.0" text="Label" />
+                  <Label layoutX="528.0" layoutY="245.0" text="Label" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -59,6 +88,17 @@
                   <Label layoutX="423.0" layoutY="203.0" text="Label" />
                   <Button layoutX="425.0" layoutY="127.0" mnemonicParsing="false" text="Appliquer" />
                   <Button layoutX="425.0" layoutY="258.0" mnemonicParsing="false" text="Appliquer" />
+                  <Label layoutX="858.0" layoutY="14.0" text="Ajout de Volaille" underline="true">
+                     <font>
+                        <Font name="Corbel Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="858.0" layoutY="53.0" text="Poids :" />
+                  <Label layoutX="858.0" layoutY="82.0" text="Type de Volaille :" />
+                  <Label layoutX="858.0" layoutY="112.0" text="Nombre :" />
+                  <ChoiceBox layoutX="962.0" layoutY="78.0" prefWidth="150.0" />
+                  <TextField layoutX="962.0" layoutY="49.0" />
+                  <TextField layoutX="962.0" layoutY="108.0" />
                </children></AnchorPane>
       </content>
     </Tab>
