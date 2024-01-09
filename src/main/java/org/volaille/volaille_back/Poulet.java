@@ -7,8 +7,25 @@ import java.util.Scanner;
  */
 public class Poulet extends Volaille {
 
+
     static Double prix_poulet = 12.0;
     static int poids_abattage = 2;
+
+    public static Double getPrix_poulet() {
+        return prix_poulet;
+    }
+
+    public static void setPrix_poulet(Double prix_poulet) {
+        Poulet.prix_poulet = prix_poulet;
+    }
+
+    public static int getPoids_abattage() {
+        return poids_abattage;
+    }
+
+    public static void setPoids_abattage(int poids_abattage) {
+        Poulet.poids_abattage = poids_abattage;
+    }
 
     /**
      * Constructeur de la classe Poulet.
@@ -17,8 +34,8 @@ public class Poulet extends Volaille {
      * @param kg
      * Poid du poulet
      */
-    public Poulet(int id, Double kg) {
-        super(id, kg);
+    public Poulet(Double kg) {
+        super(kg);
     }
 
     /**

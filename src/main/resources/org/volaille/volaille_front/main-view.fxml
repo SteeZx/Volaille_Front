@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.volaille.volaille_front.HelloController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.volaille.volaille_front.Main_Controller">
   <tabs>
     <Tab text="Visualisation">
       <content>
@@ -58,13 +58,13 @@
                         <Font name="Corbel Bold" size="25.0" />
                      </font></Label>
                   <TextField layoutX="19.0" layoutY="95.0" prefHeight="25.0" prefWidth="149.0" promptText="Prix au kilo (€)" />
-                  <Label layoutX="21.0" layoutY="73.0" text="Label" />
+                  <Label fx:id="prix_poulet" layoutX="21.0" layoutY="73.0" text="Label" />
                   <Label layoutX="21.0" layoutY="178.0" text="Poids d'abattage :">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="21.0" layoutY="203.0" text="Label" />
+                  <Label fx:id="abattage_poulet" layoutX="21.0" layoutY="203.0" text="Label" />
                   <TextField layoutX="19.0" layoutY="225.0" promptText="Poids abattage (kilo)" />
                   <Button layoutX="21.0" layoutY="258.0" mnemonicParsing="false" text="Appliquer" />
                   <Label layoutX="421.0" layoutY="14.0" text="Canards" underline="true">
@@ -77,7 +77,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="423.0" layoutY="73.0" text="Label" />
+                  <Label fx:id="prix_canard" layoutX="423.0" layoutY="73.0" text="Label" />
                   <TextField layoutX="421.0" layoutY="95.0" promptText="Prix au kilo (€)" />
                   <TextField layoutX="421.0" layoutY="225.0" promptText="Poids abattage (kilo)" />
                   <Label layoutX="423.0" layoutY="178.0" text="Poids d'abattage :">
@@ -85,7 +85,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="423.0" layoutY="203.0" text="Label" />
+                  <Label fx:id="abattage_canard" layoutX="423.0" layoutY="203.0" text="Label" />
                   <Button layoutX="425.0" layoutY="127.0" mnemonicParsing="false" text="Appliquer" />
                   <Button layoutX="425.0" layoutY="258.0" mnemonicParsing="false" text="Appliquer" />
                   <Label layoutX="858.0" layoutY="14.0" text="Ajout de Volaille" underline="true">
@@ -97,8 +97,9 @@
                   <Label layoutX="858.0" layoutY="82.0" text="Type de Volaille :" />
                   <Label layoutX="858.0" layoutY="112.0" text="Nombre :" />
                   <ChoiceBox fx:id="choiceBox" layoutX="962.0" layoutY="78.0" prefWidth="150.0" />
-                  <TextField layoutX="962.0" layoutY="49.0" />
-                  <TextField layoutX="962.0" layoutY="108.0" />
+                  <TextField fx:id="set_poid_volaille" layoutX="962.0" layoutY="49.0" />
+                  <TextField fx:id="set_nombre_volaille" layoutX="962.0" layoutY="108.0" text="1" />
+                  <Button fx:id="add_volaille" layoutX="932.0" layoutY="140.0" mnemonicParsing="false" onAction="#addVolaille" text="Ajouter" />
                </children></AnchorPane>
       </content>
     </Tab>

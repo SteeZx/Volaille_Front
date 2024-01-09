@@ -12,6 +12,22 @@ public class Canard extends Volaille {
     static Double prix_canard = 5.0;
     static int poids_abattage = 1;
 
+    public static Double getPrix_canard() {
+        return prix_canard;
+    }
+
+    public static void setPrix_canard(Double prix_canard) {
+        Canard.prix_canard = prix_canard;
+    }
+
+    public static int getPoids_abattage() {
+        return poids_abattage;
+    }
+
+    public static void setPoids_abattage(int poids_abattage) {
+        Canard.poids_abattage = poids_abattage;
+    }
+
     /**
      * Constructeur de la classe Canard.
      * @param id
@@ -19,8 +35,8 @@ public class Canard extends Volaille {
      * @param kg
      * Poid du canard
      */
-    public Canard(int id, Double kg) {
-        super(id, kg);
+    public Canard(Double kg) {
+        super(kg);
 
     }
 

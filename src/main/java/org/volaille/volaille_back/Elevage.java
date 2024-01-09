@@ -15,7 +15,7 @@ public class Elevage {
     /**
      * Méthode pour ajouter une volaille à l'élevage.
      */
-    void ajouterVolaille() {
+    public void ajouterVolaille() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Poids de la volaille");
         Double poids = scan.nextDouble();
@@ -25,10 +25,10 @@ public class Elevage {
         int type = scan.nextInt();
         switch (type){
             case 1:
-                this.elevage.add(new Poulet(id, poids));
+                this.elevage.add(new Poulet(poids));
                 id++;
             case 2:
-                this.elevage.add(new Canard(id, poids));
+                this.elevage.add(new Canard(poids));
                 id++;
         }
     }
@@ -37,7 +37,7 @@ public class Elevage {
      * Méthode pour ajouter plusieurs volailles à l'élevage.
      * @param arr liste des volailles à ajouter
      */
-    void ajouterVolaille(ArrayList<Volaille> arr){
+    public void ajouterVolaille(ArrayList<Volaille> arr){
         this.elevage.addAll(arr);
     }
 

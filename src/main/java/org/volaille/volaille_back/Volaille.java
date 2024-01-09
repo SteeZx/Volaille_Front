@@ -8,6 +8,7 @@ import java.util.Scanner;
 abstract public class Volaille {
 
     Double kg;
+    static int id_all = 1;
     int id;
 
     /**
@@ -17,8 +18,9 @@ abstract public class Volaille {
      * @param kg
      * Poid de la Volaille
      */
-    public Volaille(int id, Double kg) {
-        this.id = id;
+    public Volaille(Double kg) {
+        this.id = id_all;
+        id_all++;
         this.kg = kg;
     }
 
