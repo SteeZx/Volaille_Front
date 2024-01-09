@@ -51,14 +51,6 @@ public class Main_Controller implements Initializable {
     Label label_canard_dessouspoid;
     @FXML
     Label label_poulet_dessouspoid;
-    @FXML
-    TableView<Volaille> tableView;
-    @FXML
-    TableColumn<Volaille, Integer> idColumn;
-    @FXML
-    TableColumn<Volaille, String> typeColumn;
-    @FXML
-    TableColumn<Volaille, Double> poidColumn;
     Elevage elevage;
     ArrayList<Volaille> arr_tampon = new ArrayList<>();
 
@@ -147,6 +139,5 @@ public class Main_Controller implements Initializable {
     }
 
     void resetTableau() {
-        tableView.getItems().removeAll();
     }
 }
