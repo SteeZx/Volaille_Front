@@ -1,6 +1,6 @@
 package org.volaille.volaille_back;
 
-import org.volaille.Volaille;
+import org.volaille.volaille_back.Volaille;
 
 import java.util.Scanner;
 
