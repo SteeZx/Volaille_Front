@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.volaille.volaille_front.HelloController">
   <tabs>
     <Tab text="Visualisation">
       <content>
@@ -96,7 +96,7 @@
                   <Label layoutX="858.0" layoutY="53.0" text="Poids :" />
                   <Label layoutX="858.0" layoutY="82.0" text="Type de Volaille :" />
                   <Label layoutX="858.0" layoutY="112.0" text="Nombre :" />
-                  <ChoiceBox id="volailletype" fx:id="volaiilleType" layoutX="962.0" layoutY="78.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="choiceBox" layoutX="962.0" layoutY="78.0" prefWidth="150.0" />
                   <TextField layoutX="962.0" layoutY="49.0" />
                   <TextField layoutX="962.0" layoutY="108.0" />
                </children></AnchorPane>
