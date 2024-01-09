@@ -78,6 +78,6 @@ public class Poulet extends Volaille {
      */
     @Override
     public boolean abbatable() {
-        return kg>=poids_abattage;
+        return kg<=poids_abattage;
     }
 }

@@ -45,7 +45,7 @@ public class Elevage {
      * Méthode pour lister les volailles abbatables.
      * @return cp liste des volailles abbatables et leur prix.
      */
-    ArrayList<Pair<Volaille, Double>> listeAbbatable() {
+    public ArrayList<Pair<Volaille, Double>> listeAbbatable() {
         ArrayList<Pair<Volaille, Double>> cp = new ArrayList<>();
         for (Volaille v : this.elevage) {
             if (v.abbatable()) {
@@ -53,5 +53,9 @@ public class Elevage {
             }
         }
         return cp;
+    }
+
+    public ArrayList<Volaille> getElevage() {
+        return elevage;
     }
 }

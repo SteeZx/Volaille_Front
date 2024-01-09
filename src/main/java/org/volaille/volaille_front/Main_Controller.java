@@ -2,9 +2,8 @@ package org.volaille.volaille_front;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.util.Pair;
 import org.volaille.volaille_back.Canard;
 import org.volaille.volaille_back.Elevage;
 import org.volaille.volaille_back.Poulet;
@@ -32,8 +31,34 @@ public class Main_Controller implements Initializable {
     TextField set_poid_volaille;
     @FXML
     TextField set_nombre_volaille;
-
-
+    @FXML
+    TextField set_poid_canard;
+    @FXML
+    TextField set_poid_poulet;
+    @FXML
+    TextField set_prix_canard;
+    @FXML
+    TextField set_prix_poulet;
+    @FXML
+    Label label_canard_abattage;
+    @FXML
+    Label label_poulet_abattage;
+    @FXML
+    Label label_canard_prix_abattage;
+    @FXML
+    Label label_poulet_prix_abattage;
+    @FXML
+    Label label_canard_dessouspoid;
+    @FXML
+    Label label_poulet_dessouspoid;
+    @FXML
+    TableView<Volaille> tableView;
+    @FXML
+    TableColumn<Volaille, Integer> idColumn;
+    @FXML
+    TableColumn<Volaille, String> typeColumn;
+    @FXML
+    TableColumn<Volaille, Double> poidColumn;
     Elevage elevage;
     ArrayList<Volaille> arr_tampon = new ArrayList<>();
 
@@ -41,11 +66,15 @@ public class Main_Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         choiceBox.getItems().addAll("Poulet", "Canard");
-        prix_poulet.setText(Poulet.getPrix_poulet().toString() + "€/kg");
-        prix_canard.setText(Canard.getPrix_canard().toString() + "€/kg");
-        abattage_poulet.setText(Poulet.getPoids_abattage() +"kg");
-        abattage_canard.setText(Canard.getPoids_abattage()+"kg");
+        prix_poulet.setText(Poulet.getPrix_poulet().toString() + "€/Kg");
+        prix_canard.setText(Canard.getPrix_canard().toString() + "€/Kg");
+        abattage_poulet.setText(Poulet.getPoids_abattage() +"Kg");
+        abattage_canard.setText(Canard.getPoids_abattage()+"Kg");
         elevage = new Elevage();
+        label_canard_abattage.setText("0");
+        label_poulet_abattage.setText("0");
+        label_canard_prix_abattage.setText("0€");
+        label_poulet_prix_abattage.setText("0€");
     }
 
     public void addVolaille(){
@@ -60,6 +89,64 @@ public class Main_Controller implements Initializable {
             }
         }
         elevage.ajouterVolaille(arr_tampon);
-        System.out.println(elevage);
+        actualiserAbattage();
+    }
+
+    public void setPrixCanard() {
+        Canard.setPrix_canard(Double.parseDouble(set_prix_canard.getText()));
+        prix_canard.setText(Canard.getPrix_canard().toString()+"€/Kg");
+        set_prix_canard.setText("");
+    }
+    public void setPoidCanard() {
+        Canard.setPoids_abattage(Integer.parseInt(set_poid_canard.getText()));
+        abattage_canard.setText(Canard.getPoids_abattage()+"Kg");
+        set_poid_canard.setText("");
+    }
+    public void setPrixPoulet() {
+        Poulet.setPrix_poulet(Double.parseDouble(set_prix_poulet.getText()));
+        prix_poulet.setText(Poulet.getPrix_poulet().toString()+"€/Kg");
+        set_prix_poulet.setText("");
+    }
+
+    public void setPoidPoulet() {
+        Poulet.setPoids_abattage(Integer.parseInt(set_poid_poulet.getText()));
+        abattage_poulet.setText(Poulet.getPoids_abattage()+"Kg");
+        set_poid_poulet.setText("");
+    }
+
+    public void actualiserAbattage() {
+        Double total_canard = 0.0;
+        int compt_canard = 0;
+        int canard_dessous = 0;
+        int poulet_dessous = 0;
+        Double total_poulet = 0.0;
+        int compt_poulet = 0;
+        for (Pair<Volaille, Double> vol: elevage.listeAbbatable()) {
+            if (vol.getKey() instanceof Poulet) {
+                compt_poulet++;
+                total_poulet = total_poulet + vol.getValue();
+            } else {
+                compt_canard++;
+                total_canard = total_canard + vol.getValue();
+            }
+        }
+        label_poulet_prix_abattage.setText(total_poulet +"€");
+        label_canard_prix_abattage.setText(total_canard +"€");
+        label_poulet_abattage.setText(Integer.toString(compt_poulet));
+        label_canard_abattage.setText(Integer.toString(compt_canard));
+
+//        for (Volaille vol: elevage.getElevage()) {
+//            if (!vol.abbatable() && vol instanceof Poulet) {
+//                poulet_dessous++;
+//            } else if (!vol.abbatable() && vol instanceof Canard) {
+//                canard_dessous++;
+//            }
+//        }
+//        label_poulet_dessouspoid.setText(Integer.toString(poulet_dessous));
+//        label_canard_dessouspoid.setText(Integer.toString(canard_dessous));
+    }
+
+    void resetTableau() {
+        tableView.getItems().removeAll();
     }
 }

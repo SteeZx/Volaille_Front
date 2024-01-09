@@ -8,9 +8,8 @@
   <tabs>
     <Tab text="Visualisation">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <AnchorPane fx:id="tableView" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <ListView layoutX="48.0" layoutY="51.0" prefHeight="497.0" prefWidth="329.0" />
                   <Label layoutX="48.0" layoutY="14.0" text="Liste des volailles" underline="true">
                      <font>
                         <Font name="System Bold" size="24.0" />
@@ -25,13 +24,13 @@
                      </font>
                   </Label>
                   <Label layoutX="469.0" layoutY="109.0" text="Canards :" />
-                  <Label layoutX="528.0" layoutY="109.0" text="Label" />
+                  <Label fx:id="label_canard_abattage" layoutX="528.0" layoutY="109.0" text="Label" />
                   <Label layoutX="469.0" layoutY="136.0" text="Poulet :" />
-                  <Label layoutX="528.0" layoutY="136.0" text="Label" />
+                  <Label fx:id="label_poulet_abattage" layoutX="528.0" layoutY="136.0" text="Label" />
                   <Label layoutX="573.0" layoutY="109.0" text="pour" />
                   <Label layoutX="572.0" layoutY="136.0" text="pour" />
-                  <Label layoutX="615.0" layoutY="109.0" text="Label" />
-                  <Label layoutX="615.0" layoutY="136.0" text="Label" />
+                  <Label fx:id="label_canard_prix_abattage" layoutX="615.0" layoutY="109.0" text="Label" />
+                  <Label fx:id="label_poulet_prix_abattage" layoutX="615.0" layoutY="136.0" text="Label" />
                   <Label layoutX="469.0" layoutY="175.0" text="Volailles en dessous du poids">
                      <font>
                         <Font size="18.0" />
@@ -39,8 +38,15 @@
                   </Label>
                   <Label layoutX="469.0" layoutY="216.0" text="Canards" />
                   <Label layoutX="469.0" layoutY="245.0" text="Poulets" />
-                  <Label layoutX="528.0" layoutY="216.0" text="Label" />
-                  <Label layoutX="528.0" layoutY="245.0" text="Label" />
+                  <Label fx:id="label_canard_dessouspoid" layoutX="528.0" layoutY="216.0" text="Label" />
+                  <Label fx:id="label_poulet_dessouspoid" layoutX="528.0" layoutY="245.0" text="Label" />
+                  <TableView layoutX="53.0" layoutY="54.0" prefHeight="200.0" prefWidth="224.0">
+                    <columns>
+                      <TableColumn fx:id="idColumn" prefWidth="52.0" text="ID" />
+                      <TableColumn fx:id="typeColumn" prefWidth="112.0" text="Type" />
+                        <TableColumn fx:id="poidColumn" prefWidth="61.0" text="Poids" />
+                    </columns>
+                  </TableView>
                </children></AnchorPane>
       </content>
     </Tab>
@@ -48,7 +54,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="21.0" layoutY="127.0" mnemonicParsing="false" text="Appliquer" />
+                  <Button fx:id="setPrix_Poulet" layoutX="21.0" layoutY="127.0" mnemonicParsing="false" onAction="#setPrixPoulet" text="Appliquer" />
                   <Label layoutX="19.0" layoutY="49.0" text="Prix au kilo :">
                      <font>
                         <Font size="16.0" />
@@ -57,7 +63,7 @@
                      <font>
                         <Font name="Corbel Bold" size="25.0" />
                      </font></Label>
-                  <TextField layoutX="19.0" layoutY="95.0" prefHeight="25.0" prefWidth="149.0" promptText="Prix au kilo (€)" />
+                  <TextField fx:id="set_prix_poulet" layoutX="19.0" layoutY="95.0" prefHeight="25.0" prefWidth="149.0" promptText="Prix au kilo (€)" />
                   <Label fx:id="prix_poulet" layoutX="21.0" layoutY="73.0" text="Label" />
                   <Label layoutX="21.0" layoutY="178.0" text="Poids d'abattage :">
                      <font>
@@ -65,8 +71,8 @@
                      </font>
                   </Label>
                   <Label fx:id="abattage_poulet" layoutX="21.0" layoutY="203.0" text="Label" />
-                  <TextField layoutX="19.0" layoutY="225.0" promptText="Poids abattage (kilo)" />
-                  <Button layoutX="21.0" layoutY="258.0" mnemonicParsing="false" text="Appliquer" />
+                  <TextField fx:id="set_poid_poulet" layoutX="19.0" layoutY="225.0" promptText="Poids abattage (kilo)" />
+                  <Button layoutX="21.0" layoutY="258.0" mnemonicParsing="false" onAction="#setPoidPoulet" text="Appliquer" />
                   <Label layoutX="421.0" layoutY="14.0" text="Canards" underline="true">
                      <font>
                         <Font name="Corbel Bold" size="25.0" />
@@ -78,16 +84,16 @@
                      </font>
                   </Label>
                   <Label fx:id="prix_canard" layoutX="423.0" layoutY="73.0" text="Label" />
-                  <TextField layoutX="421.0" layoutY="95.0" promptText="Prix au kilo (€)" />
-                  <TextField layoutX="421.0" layoutY="225.0" promptText="Poids abattage (kilo)" />
+                  <TextField fx:id="set_prix_canard" layoutX="421.0" layoutY="95.0" promptText="Prix au kilo (€)" />
+                  <TextField fx:id="set_poid_canard" layoutX="421.0" layoutY="225.0" promptText="Poids abattage (kilo)" />
                   <Label layoutX="423.0" layoutY="178.0" text="Poids d'abattage :">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
                   <Label fx:id="abattage_canard" layoutX="423.0" layoutY="203.0" text="Label" />
-                  <Button layoutX="425.0" layoutY="127.0" mnemonicParsing="false" text="Appliquer" />
-                  <Button layoutX="425.0" layoutY="258.0" mnemonicParsing="false" text="Appliquer" />
+                  <Button layoutX="425.0" layoutY="127.0" mnemonicParsing="false" onAction="#setPrixCanard" text="Appliquer" />
+                  <Button layoutX="425.0" layoutY="258.0" mnemonicParsing="false" onAction="#setPoidCanard" text="Appliquer" />
                   <Label layoutX="858.0" layoutY="14.0" text="Ajout de Volaille" underline="true">
                      <font>
                         <Font name="Corbel Bold" size="25.0" />
