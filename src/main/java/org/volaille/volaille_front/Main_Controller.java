@@ -54,7 +54,17 @@ public class Main_Controller implements Initializable {
     Elevage elevage;
     ArrayList<Volaille> arr_tampon = new ArrayList<>();
 
-
+    /***
+     * Initializes the controller class.
+     * @param url
+     * The location used to resolve relative paths for the root object, or
+     * {@code null} if the location is not known.
+     *
+     * @param resourceBundle
+     * The resources used to localize the root object, or {@code null} if
+     * the root object was not localized.
+     *
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         choiceBox.getItems().addAll("Poulet", "Canard");
@@ -69,6 +79,9 @@ public class Main_Controller implements Initializable {
         label_poulet_prix_abattage.setText("0€");
     }
 
+    /***
+     * Add volaille to the elevage
+     */
     public void addVolaille(){
         int nb_volaille = Integer.parseInt(set_nombre_volaille.getText());
         if (Objects.equals(choiceBox.getValue(), "Poulet")) {
@@ -84,28 +97,45 @@ public class Main_Controller implements Initializable {
         actualiserAbattage();
     }
 
+    /***
+     * Set the price of the canard
+     */
     public void setPrixCanard() {
         Canard.setPrix_canard(Double.parseDouble(set_prix_canard.getText()));
         prix_canard.setText(Canard.getPrix_canard().toString()+"€/Kg");
         set_prix_canard.setText("");
     }
+
+    /***
+     *  Set the weight of the canard
+     */
     public void setPoidCanard() {
         Canard.setPoids_abattage(Integer.parseInt(set_poid_canard.getText()));
         abattage_canard.setText(Canard.getPoids_abattage()+"Kg");
         set_poid_canard.setText("");
     }
+
+    /***
+     * Set the price of the Poulet
+     */
     public void setPrixPoulet() {
         Poulet.setPrix_poulet(Double.parseDouble(set_prix_poulet.getText()));
         prix_poulet.setText(Poulet.getPrix_poulet().toString()+"€/Kg");
         set_prix_poulet.setText("");
     }
 
+    /***
+     * Set the weight of the Poulet
+     */
     public void setPoidPoulet() {
         Poulet.setPoids_abattage(Integer.parseInt(set_poid_poulet.getText()));
         abattage_poulet.setText(Poulet.getPoids_abattage()+"Kg");
         set_poid_poulet.setText("");
     }
 
+    /***
+     * Update the Abattage instance
+     */
     public void actualiserAbattage() {
         Double total_canard = 0.0;
         int compt_canard = 0;

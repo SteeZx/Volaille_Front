@@ -5,9 +5,6 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Classe de l'élevage de volailles.
- */
 public class Elevage {
     ArrayList<Volaille> elevage = new ArrayList<>();
     static int id;

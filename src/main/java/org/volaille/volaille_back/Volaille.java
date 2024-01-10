@@ -13,8 +13,6 @@ abstract public class Volaille {
 
     /**
      * Constructeur de la classe volaille
-     * @param id
-     *ID de la bague de la Volaille
      * @param kg
      * Poid de la Volaille
      */
@@ -26,7 +24,6 @@ abstract public class Volaille {
 
     /**
      * Méthode abstraite calcul_prix
-     * @return
      */
     abstract public Double calcul_prix();
 
@@ -42,7 +39,6 @@ abstract public class Volaille {
 
     /**
      * Méthode abstraite abbatable
-     * @return
      */
     abstract public boolean abbatable();
 

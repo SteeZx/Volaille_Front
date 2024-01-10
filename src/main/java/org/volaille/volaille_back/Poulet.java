@@ -11,26 +11,40 @@ public class Poulet extends Volaille {
     static Double prix_poulet = 12.0;
     static int poids_abattage = 2;
 
+    /***
+     * Retourne le prix du poulet.
+     * @return prix_poulet
+     */
     public static Double getPrix_poulet() {
         return prix_poulet;
     }
 
+    /***
+     * Définit le prix du poulet.
+     * @param prix_poulet Prix du poulet
+     */
     public static void setPrix_poulet(Double prix_poulet) {
         Poulet.prix_poulet = prix_poulet;
     }
 
+    /***
+     * Retourne le poids d'abattage du poulet.
+     * @return poids_abattage
+     */
     public static int getPoids_abattage() {
         return poids_abattage;
     }
 
+    /***
+     * Définit le poids d'abattage du poulet.
+     * @param poids_abattage
+     */
     public static void setPoids_abattage(int poids_abattage) {
         Poulet.poids_abattage = poids_abattage;
     }
 
     /**
      * Constructeur de la classe Poulet.
-     * @param id
-     * ID de la bague du Poulet
      * @param kg
      * Poid du poulet
      */
