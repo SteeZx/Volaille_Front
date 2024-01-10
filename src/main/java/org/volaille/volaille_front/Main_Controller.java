@@ -116,10 +116,10 @@ public class Main_Controller implements Initializable {
         for (Pair<Volaille, Double> vol: elevage.listeAbbatable()) {
             if (vol.getKey() instanceof Poulet) {
                 compt_poulet++;
-                total_poulet = total_poulet + vol.getValue();
+                total_poulet = vol.getValue();
             } else {
                 compt_canard++;
-                total_canard = total_canard + vol.getValue();
+                total_canard = vol.getValue();
             }
         }
         label_poulet_prix_abattage.setText(total_poulet +"€");
