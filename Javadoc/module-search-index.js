@@ -1,0 +1,1 @@
+moduleSearchIndex = [{"l":"org.volaille.volaille_front"}];updateSearchResults();
