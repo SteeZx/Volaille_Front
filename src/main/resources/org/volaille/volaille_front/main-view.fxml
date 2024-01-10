@@ -40,11 +40,11 @@
                   <Label layoutX="469.0" layoutY="245.0" text="Poulets" />
                   <Label fx:id="label_canard_dessouspoid" layoutX="528.0" layoutY="216.0" text="Label" />
                   <Label fx:id="label_poulet_dessouspoid" layoutX="528.0" layoutY="245.0" text="Label" />
-                  <TableView layoutX="53.0" layoutY="54.0" prefHeight="200.0" prefWidth="224.0">
+                  <TableView fx:id="tableau" layoutX="53.0" layoutY="54.0" prefHeight="200.0" prefWidth="224.0">
                     <columns>
-                      <TableColumn fx:id="idColumn" prefWidth="52.0" text="ID" />
-                      <TableColumn fx:id="typeColumn" prefWidth="112.0" text="Type" />
-                        <TableColumn fx:id="poidColumn" prefWidth="61.0" text="Poids" />
+                      <TableColumn fx:id="id" prefWidth="52.0" text="ID" />
+                      <TableColumn fx:id="type" prefWidth="112.0" text="Type" />
+                        <TableColumn fx:id="kg" prefWidth="61.0" text="Poids" />
                     </columns>
                   </TableView>
                </children></AnchorPane>

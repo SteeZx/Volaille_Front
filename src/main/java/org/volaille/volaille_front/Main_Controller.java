@@ -3,6 +3,7 @@ package org.volaille.volaille_front;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Pair;
 import org.volaille.volaille_back.Canard;
 import org.volaille.volaille_back.Elevage;
@@ -51,6 +52,14 @@ public class Main_Controller implements Initializable {
     Label label_canard_dessouspoid;
     @FXML
     Label label_poulet_dessouspoid;
+    @FXML
+    TableView<Volaille> tableau;
+    @FXML
+    TableColumn<Volaille, Integer> id;
+    @FXML
+    TableColumn<Volaille, String> type;
+    @FXML
+    TableColumn<Volaille, Double> kg;
     Elevage elevage;
     ArrayList<Volaille> arr_tampon = new ArrayList<>();
 
@@ -77,6 +86,11 @@ public class Main_Controller implements Initializable {
         label_poulet_abattage.setText("0");
         label_canard_prix_abattage.setText("0€");
         label_poulet_prix_abattage.setText("0€");
+        label_poulet_dessouspoid.setText("0");
+        label_canard_dessouspoid.setText("0");
+        kg.setCellValueFactory(new PropertyValueFactory<>("kg"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
     }
 
     /***
@@ -94,7 +108,9 @@ public class Main_Controller implements Initializable {
             }
         }
         elevage.ajouterVolaille(arr_tampon);
+        arr_tampon = new ArrayList<>();
         actualiserAbattage();
+        updateTableau();
     }
 
     /***
@@ -157,17 +173,19 @@ public class Main_Controller implements Initializable {
         label_poulet_abattage.setText(Integer.toString(compt_poulet));
         label_canard_abattage.setText(Integer.toString(compt_canard));
 
-//        for (Volaille vol: elevage.getElevage()) {
-//            if (!vol.abbatable() && vol instanceof Poulet) {
-//                poulet_dessous++;
-//            } else if (!vol.abbatable() && vol instanceof Canard) {
-//                canard_dessous++;
-//            }
-//        }
-//        label_poulet_dessouspoid.setText(Integer.toString(poulet_dessous));
-//        label_canard_dessouspoid.setText(Integer.toString(canard_dessous));
+        for (Volaille vol: elevage.getElevage()) {
+            if (!vol.abbatable() && vol instanceof Poulet) {
+                poulet_dessous++;
+            } else if (!vol.abbatable() && vol instanceof Canard) {
+                canard_dessous++;
+            }
+        }
+        label_poulet_dessouspoid.setText(Integer.toString(poulet_dessous));
+        label_canard_dessouspoid.setText(Integer.toString(canard_dessous));
     }
 
-    void resetTableau() {
+    void updateTableau() {
+        tableau.getItems().clear();
+        tableau.getItems().addAll(elevage.getElevage());
     }
 }
