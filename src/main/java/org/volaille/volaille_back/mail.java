@@ -1,4 +1,6 @@
 package org.volaille.volaille_back;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import okhttp3.*;
 import org.volaille.volaille_front.Main_Controller;
 
@@ -6,7 +8,7 @@ import java.io.IOException;
 
 
 public class mail {
-    public static void EnvoiInventaire(Integer total_canard,Integer valeur_stock_canard,Integer total_poulet,Integer valeur_stock_poulet, String email_destinataire) throws IOException {
+    public static void EnvoiInventaire(String total_canard, String valeur_stock_canard, String total_poulet, String valeur_stock_poulet, String email_destinataire) throws IOException {
         OkHttpClient client = new OkHttpClient();
 
         MediaType mediaType = MediaType.parse("application/json");
@@ -21,7 +23,7 @@ public class mail {
                 .post(body)
                 .addHeader("accept", "application/json")
                 .addHeader("content-type", "application/json")
-                .addHeader("api-key", "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")
+                .addHeader("api-key", "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")
                 .build();
 
         Response response = client.newCall(request).execute();

@@ -9,7 +9,9 @@ import org.volaille.volaille_back.Canard;
 import org.volaille.volaille_back.Elevage;
 import org.volaille.volaille_back.Poulet;
 import org.volaille.volaille_back.Volaille;
+import org.volaille.volaille_back.mail;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -53,6 +55,7 @@ public class Main_Controller implements Initializable {
     @FXML
     Label label_poulet_dessouspoid;
     @FXML
+    TextField MailRecipient;
     TableView<Volaille> tableau;
     @FXML
     TableColumn<Volaille, Integer> id;
@@ -187,5 +190,14 @@ public class Main_Controller implements Initializable {
     void updateTableau() {
         tableau.getItems().clear();
         tableau.getItems().addAll(elevage.getElevage());
+    }
+
+    public void sendMail() throws IOException {
+        String canard_abbattage = label_canard_abattage.getText();
+        String canard_valeur_stock = label_canard_prix_abattage.getText();
+        String poulet_abbattage = label_poulet_abattage.getText();
+        String poulet_valeur_stock = label_poulet_prix_abattage.getText();
+        String mail_destinataire = MailRecipient.getText();
+        mail.EnvoiInventaire(canard_abbattage,canard_valeur_stock,poulet_abbattage,poulet_valeur_stock,mail_destinataire);
     }
 }
