@@ -8,6 +8,7 @@ import org.volaille.volaille_back.Canard;
 import org.volaille.volaille_back.Elevage;
 import org.volaille.volaille_back.Poulet;
 import org.volaille.volaille_back.Volaille;
+import org.volaille.volaille_back.mail;
 
 import java.net.URL;
 import java.util.ArrayList;
