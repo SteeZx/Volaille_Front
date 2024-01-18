@@ -16,5 +16,6 @@ module org.volaille.volaille_front {
     requires okhttp3;
 
     opens org.volaille.volaille_front to javafx.fxml;
+    opens org.volaille.volaille_back to javafx.base;
     exports org.volaille.volaille_front;
 }
