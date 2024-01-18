@@ -10,6 +10,11 @@ module org.volaille.volaille_front {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
 
+    //requires java.io.File;
+    //requires java.util;
+    requires sib.api.v3.sdk;
+    requires okhttp3;
+
     opens org.volaille.volaille_front to javafx.fxml;
     opens org.volaille.volaille_back to javafx.base;
     exports org.volaille.volaille_front;
